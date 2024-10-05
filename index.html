@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">كتابي</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- إضافة خط Cairo -->
+</head>
+
+<body>
+    <div class="toolbar">
+        <div class="files-menu">
+            <button onclick="toggleMenu('files')" data-translate="files">Files</button>
+            <div id="files" class="dropdown-content">
+                <button onclick="openDocument()" data-translate="open">Open</button>
+                <button onclick="exportAsPDF()"><i class="fas fa-file-pdf"></i> <span
+                        data-translate="exportAsPDF">Export as PDF</span></button>
+                <button onclick="exportAsText()"><i class="fas fa-file-alt"></i> <span
+                        data-translate="exportAsText">Export as Text</span></button>
+                <button onclick="exportAsBook()"><i class="fas fa-file-alt"></i> <span
+                        data-translate="exportAsBook">Export as .كتاب</span></button>
+                <button onclick="printDocument()"><i class="fas fa-print"></i> <span
+                        data-translate="print">Print</span></button>
+            </div>
+        </div>
+
+        <div class="home-menu">
+            <button onclick="toggleMenu('home')" data-translate="home">Home</button>
+            <div id="home" class="dropdown-content home-container">
+                <select id="fontSelect" onchange="changeFont(this.value)">
+                    <option value="">Select Font</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Cairo">Cairo</option> <!-- إضافة خط Cairo هنا -->
+                </select>
+
+                <select id="fontSizeSelect" onchange="changeFontSize(this.value)">
+                    <option value="">Select Font Size</option>
+                    <option value="1">8</option>
+                    <option value="2">10</option>
+                    <option value="3">12</option>
+                    <option value="4">14</option>
+                    <option value="5">16</option>
+                    <option value="6">18</option>
+                    <option value="7">20</option>
+                    <option value="8">22</option>
+                    <option value="9">24</option>
+                    <option value="10">26</option>
+                    <option value="11">28</option>
+                    <option value="12">30</option>
+                </select>
+                <button onclick="formatText('bold')"><i class="fas fa-bold"></i></button>
+                <button onclick="formatText('italic')"><i class="fas fa-italic"></i></button>
+                <button onclick="formatText('underline')"><i class="fas fa-underline"></i></button>
+                <button onclick="formatText('justifyLeft')"><i class="fas fa-align-left"></i></button>
+                <button onclick="formatText('justifyCenter')"><i class="fas fa-align-center"></i></button>
+                <button onclick="formatText('justifyRight')"><i class="fas fa-align-right"></i></button>
+                <input type="color" id="colorPicker" onchange="changeTextColor(this.value)" value="#000000">
+                <button onclick="removeFormat()" data-translate="clearFormatting">Clear Formatting</button>
+                <button onclick="undo()" data-translate="undo">Undo</button>
+                <button onclick="redo()" data-translate="redo">Redo</button>
+                <select onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="ar">عربي</option>
+                    <option value="fr">Français</option>
+                </select>
+                <button onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                    <i id="themeIcon" class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="insert-menu">
+            <button onclick="toggleMenu('insert')" data-translate="insert">Insert</button>
+            <div id="insert" class="dropdown-content">
+                <button onclick="insertImage()" data-translate="insertImage">Insert Image</button>
+                <button onclick="insertTable()" data-translate="insertTable">Insert Table</button>
+                <button onclick="insertQuote()" data-translate="insertQuote">Quote</button>
+                <button onclick="insertLink()" data-translate="insertLink">Insert Link</button>
+                <button onclick="toggleSearchReplace()" data-translate="searchAndReplace">Search & Replace</button>
+                <div id="searchReplaceContainer" style="display:none;">
+                    <input type="text" id="searchText" placeholder="Search text" data-translate="searchText">
+                    <input type="text" id="replaceWith" placeholder="Replace with" data-translate="replaceWith">
+                    <button onclick="searchAndReplace()">Replace</button>
+                    <button onclick="toggleSearchReplace()" data-translate="toggleSearchReplace">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="editor" contenteditable="true" placeholder="Start typing here..."></div>
+
+    <script src="settings.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
