@@ -1,0 +1,139 @@
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
+    
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    background-color: #0078D7;
+    padding: 5px 10px;
+    border-bottom: 2px solid #005a9e;
+}
+
+.files-menu, .home-menu, .insert-menu {
+    position: relative;
+    margin-right: 15px;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+button, select {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 500;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #005a9e;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #003d66;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-content button, .dropdown-content select {
+    display: block;
+    margin: 5px 0;
+}
+
+#searchReplaceContainer {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* تغيير لون الخلفية للمحرر */
+#editor {
+    width: 700px;
+    height: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #e9e9e9; /* لون الخلفية في الوضع الفاتح (أبيض غامق) */
+    border-radius: 5px;
+    margin: 10px auto;
+    overflow-y: auto;
+    border: none; /* إزالة الحدود */
+    transition: background-color 0.3s; /* تأثير الانتقال عند تغيير اللون */
+}
+
+body.dark #editor {
+    background-color: #555; /* لون الخلفية في الوضع الداكن */
+    color: #fff; /* لون النص في الوضع الداكن */
+}
+
+/* إضافة تأثير عند الضغط على الورقة */
+#editor:focus {
+    outline: none; /* إزالة الحدود عند الضغط على المحرر */
+}
+
+
+#editor:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
+}
+
+/* Dark theme styles */
+body.dark {
+    background-color: #333; /* لون الخلفية في الوضع الداكن */
+    color: #f5f5f5;
+}
+
+body.dark .toolbar {
+    background-color: #222;
+}
+
+body.dark .dropdown-content {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark button {
+    background-color: #005a9e;
+}
+
+body.dark button:hover {
+    background-color: #003d66;
+}
+
+/* تغيير لون الخلفية للمحرر في الوضع الداكن */
+body.dark #editor {
+    background-color: #555; /* لون الخلفية في الوضع الداكن */
+}
